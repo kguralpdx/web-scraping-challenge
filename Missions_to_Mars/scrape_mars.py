@@ -37,7 +37,7 @@ def scrape_info():
 
     # Add the variable info to mars_scraped_dict dictionary
     mars_scraped_dict["news_title"] = news_title
-    mars_scraped_dict["news_p"] = news_title
+    mars_scraped_dict["news_p"] = news_p
 
     
     # JPL Mars Space Images Scrape

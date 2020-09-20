@@ -17,11 +17,15 @@
       <p>Pandas. BeautifulSoup. Splinter. MongoDB. PyMongo.</p>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
-    {% if vacation %}
-    <img src="{{ vacation.sloth_img }}" alt="Sloth">
+    {% if mars %}
+    <h2>Latest Mars News</h2>
+    <h3>{{ mars.news_title }}</h3>
+    <p>{{ mars.news_p }}</p>
+
+    <img src={{ mars.featured_image_url }} />
+ 
     <h2>The typical weather in Costa Rica is:</h2>
-    <h3>Max Temp: {{ vacation.max_temp }}</h3>
-    <h3>Min Temp: {{ vacation.min_temp }}</h3>
+
     {% endif %}
   </div>
   </div>
