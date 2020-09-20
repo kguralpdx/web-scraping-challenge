@@ -8,7 +8,7 @@ def init_browser():
     executable_path = {'executable_path': "../../../../chromedriver_win32/chromedriver.exe"}
     return Browser("chrome", **executable_path, headless=False)
 
-def scrape():
+def scrape_info():
     # Create an empty dictionary to store scraped data
     mars_scraped_dict = {}
 
@@ -77,3 +77,23 @@ def scrape():
 
 
     # Mars Facts Scrape
+    # Set the URL to a variable
+    facts_url = "https://space-facts.com/mars/"
+
+    # Scrape any tabular data from the site
+    tables = pd.read_html(facts_url)
+
+    time.sleep(2)
+
+    # Get the first table and add column headers
+    mars_facts_df = tables[0]
+    mars_facts_df.columns = ["Description", "Mars"]
+
+    # Change the index to be the Description column
+    mars_facts_df.set_index(["Description"], inplace=True)
+
+    # Save the dataframe as an html table file
+    mars_table = mars_facts_df.to_html()
+
+    # Add the variable info to mars_scraped_dict dictionary
+    mars_scraped_dict["mars_table"] = mars_table
