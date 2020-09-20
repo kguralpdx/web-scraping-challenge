@@ -97,3 +97,54 @@ def scrape_info():
 
     # Add the variable info to mars_scraped_dict dictionary
     mars_scraped_dict["mars_table"] = mars_table
+
+
+    # Mars Hemispheres
+    # Initialize browser 
+    browser = init_browser()
+
+    # Browse to the USGS Astrogeology site
+    url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
+    browser.visit(url)
+
+    time.sleep(6)
+
+    # Create BeautifulSoup object; parse with 'html.parser'
+    html = browser.html
+    soup = bs(html, 'html.parser')
+
+    # find all the itemLink product-item class elements
+    results = soup.find_all("a", class_="itemLink product-item")
+
+    # Get the URLs to be searched
+    full_urls = []
+    base_url = "https://astrogeology.usgs.gov"
+    for item in results:
+        if item['href'] not in full_urls:
+            full_urls.append(item['href'])
+
+    # Create a list of full URLs by oncatenating the main URL with the relative URLs
+    search_urls = [base_url + item for item in full_urls]
+
+    # Create list of dicitionaries
+    hemisphere_list = []
+    for link in search_urls:
+        mars_dict = {}
+        browser.visit(link)
+        html = browser.html
+        soup = bs(html, "html.parser")
+        img_url = soup.find("img", class_ = "wide-image")["src"]
+        title = soup.find("h2", class_="title").text
+        mars_dict["title"] = title
+        mars_dict["img_url"] = base_url + img_url
+        hemisphere_list.append(mars_dict)
+        browser.back()
+
+    # Close the browser
+    browser.quit()
+    
+    # Add the hemispheres_list to the to mars_scraped_dict dictionary
+    mars_scraped_dict["hemispheres"] = hemisphere_list
+
+    # Return results
+    return mars_scraped_dict
