@@ -2,6 +2,7 @@ from splinter import Browser
 from bs4 import BeautifulSoup as bs
 import requests
 import time
+import pandas as pd
 
 def init_browser():
     # @NOTE: Replace the path with your actual path to the chromedriver
@@ -14,7 +15,7 @@ def scrape_info():
 
     # NASA Mars News Scrape
     # URL of page to be scraped
-    url = 'https://mars.nasa.gov/news/"
+    url = 'https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest'
 
     # Retrieve page with the requests module
     response = requests.get(url)
