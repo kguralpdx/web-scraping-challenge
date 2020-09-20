@@ -145,7 +145,7 @@ def scrape_info():
     browser.quit()
     
     # Add the hemispheres_list to the to mars_scraped_dict dictionary
-    mars_scraped_dict["hemispheres"] = hemisphere_list
+    mars_scraped_dict["hemisphere_list"] = hemisphere_list
 
     # Return results
     return mars_scraped_dict

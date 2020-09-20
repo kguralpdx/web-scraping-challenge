@@ -22,9 +22,12 @@
     <h3>{{ mars.news_title }}</h3>
     <p>{{ mars.news_p }}</p>
 
-    <img src={{ mars.featured_image_url }} />
- 
-    <h2>The typical weather in Costa Rica is:</h2>
+    <img src={{ mars.featured_image_url }} alt="The featured image from JPL"/>
+
+    <img src={{ mars.hemispheres[0]['img_url'] }} />
+    <h3>{{ mars.hemispheres[0]['title'] }}</h3>
+
+    <div>{{ mars.mars_table }}</div>
 
     {% endif %}
   </div>
