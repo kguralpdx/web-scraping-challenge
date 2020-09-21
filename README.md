@@ -18,15 +18,18 @@ The purpose of thie challenge is to, by the click of a button on a webpage, scra
     * [app.py](Missions_to_Mars/) - this is the *Flask* API
     * [scrape_mars.py](Missions_to_Mars/) - this is the *PyMongo* script that does the scraping
 
-    * [mars_facts_table]((Missions_to_Mars/) - this file is the Mars Facts table created in *Jupyter Notebook* and saved as an HTML file. This is not needed to run this project. It's more of a troubleshooting file when I had issues trying to get the Mars Facts table to display on the website. This information is also saved to a variable and that's how it's used when running this project.
+    * [mars_facts_table]((Missions_to_Mars/mars_facts_table.html) - this file is the Mars Facts table created in *Jupyter Notebook* and saved as an HTML file. This is not needed to run this project. It's more of a troubleshooting file when I had issues trying to get the Mars Facts table to display on the website. This information is also saved to a variable and that's how it's used when running this project.
 
 
 ## Requirements
 
 1. *MongoDB* **must** be running. If it's installed locally, you need to run `mongod` from a terminal and leave that up and running in the background. Then open another terminal and run `mongo`. If you have *MongoDB* running as a service, you just need to open a terminal and run `mongo`.
-2. For *Splinter* to work, you need to have the correct version of the *Chromedriver* downloaded and accessible. This must be the version that matches your current version of Chrome. Instructions on how to find your current version of *Chrome* as well as how/where to install the *Chromedriver* can be found at the end of this file in the **How-To Install Chromedriver** section, or [here](#how-to).
+
+2. For *Splinter* to work, you need to have the correct version of the *Chromedriver* downloaded and accessible. This must be the version that matches your current version of Chrome. Instructions on how to find your current version of *Chrome* as well as how/where to install the *Chromedriver* can be found at the end of this file in the **How-To Install Chromedriver** section, or [here](#how-to install chromedriver).
+
 3. After the *Chromedriveer* has been installed, you will need to modify the `executable-path` in the *scrape_mars.py* file to point to where you put the *chromedriver.exe* file.
     ![Images/executable_path.png](Images/executable_path.PNG)
+
 4. If you run the *Jupyter Notebook*, you will also need to modify the `executable-path` in there as well. There are 2 cells that will need to be updated (one in the *JPL Mars Space Images - Feature Image* section and one in the *Mars Hemispheres* section).
 
 
