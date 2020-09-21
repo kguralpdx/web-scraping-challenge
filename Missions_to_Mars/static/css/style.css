@@ -1,13 +1,6 @@
-body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 18px;
-  }
-
 h2 {
     font-weight: bold;
 }
-
-
 
 .jumbotron h1{
     color: rgb(255, 0, 0);
@@ -34,11 +27,10 @@ p {
 table {
     font-family: Arial, Helvetica, sans-serif;
     font-size: small;
-    padding: 20px;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin: auto;
   }
 
   tr:nth-child(even) {
     background-color: #f2f2f2;
   }
+

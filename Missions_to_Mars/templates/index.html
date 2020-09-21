@@ -8,11 +8,14 @@
   <title>Mission to Mars</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 </head>
 
+<style>
+  img  {width: 100%; height: 100%; object-fit: contain;}
+  </style>
+
 <body>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="jumbotron text-center" style="background-image: url(../static/images/pia22594.jpg);">
@@ -25,14 +28,14 @@
           <div class="col-md-12">
 
             <h2 style="font-weight: bold">Latest Mars News</h2>
-            <h3 style="font-weight: bold;">{{ mars.news_title }}</h3>
+            <h4 style="font-weight: bold;">{{ mars.news_title }}</h4>
             <p style="color: black; font-size: medium;">{{ mars.news_p }}</p>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-8" >
             <h2 style="font-weight: bolder;">Featured Mars Image</h2>
-            <img src={{ mars.featured_image_url }} alt="The featured image from JPL"/>
+            <img src={{ mars.featured_image_url }} alt="The featured image from JPL" />
           </div>
           <div class="col-md-4">
             <h4 style="font-weight: bold;">Mars Facts</h4>
@@ -43,34 +46,50 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <h2 class=text-center style="font-weight: bold;">Mars Hemispheres</h2>
+            <h2 class=text-center style="font-weight: bold; margin-bottom: 1px; margin-top: 40px;">Mars Hemispheres</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card" style="margin: 20px;">
+              <img class="card-img-top" src={{ mars.hemispheres[0]['img_url'] }} alt="An image of the Valles Marineris Hemisphere of Mars"/>
+              <div class="card-body">
+                <h3 class="card-title text-center" style="margin-top: 10px; margin-bottom: 20px;">{{ mars.hemispheres[0]['title'] }}</h3>                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card" style="margin: 20px;">
+              <img class="card-img-top" src={{ mars.hemispheres[1]['img_url'] }} alt="An image of the Schiaparelli Hemisphere of Mars"/>
+              <div class="card-body">
+                <h3 class="card-title text-center" style="margin-top: 10px; margin-bottom: 20px;">{{ mars.hemispheres[1]['title'] }}</h3>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
-            <img src={{ mars.hemispheres[0]['img_url'] }} alt="An image of the Cerberus Hemisphere of Mars"/>
-            <h3>{{ mars.hemispheres[0]['title'] }}</h3>
+            <div class="card" style="margin: 20px;">
+              <img class="card-img-top" src={{ mars.hemispheres[2]['img_url'] }} alt="An image of the Syrtis Major Hemisphere of Mars"/>
+              <div class="card-body">
+                <h3 class="card-title text-center" style="margin-top: 10px; margin-bottom: 20px;">{{ mars.hemispheres[2]['title'] }}</h3>                
+              </div>
+            </div>
           </div>
           <div class="col-md-6">
-            <img src={{ mars.hemispheres[1]['img_url'] }} alt="An image of the Schiaparelli Hemisphere of Mars"/>
-            <h3>{{ mars.hemispheres[1]['title'] }}</h3>
+            <div class="card" style="margin: 20px;">
+              <img class="card-img-top" src={{ mars.hemispheres[3]['img_url'] }} alt="An image of the Valles Marineris Hemisphere of Mars"/>
+              <div class="card-body">
+                <h3 class="card-title text-center" style="margin-top: 10px; margin-bottom: 20px;">{{ mars.hemispheres[3]['title'] }}</h3> 
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <img src={{ mars.hemispheres[2]['img_url'] }} alt="An image of the Syrtis Major Hemisphere of Mars"/>
-            <h3>{{ mars.hemispheres[2]['title'] }}</h3>
-          </div>
-          <div class="col-md-6">
-            <img src={{ mars.hemispheres[3]['img_url'] }} alt="An image of the Valles Marineris Hemisphere of Mars"/>
-            <h3>{{ mars.hemispheres[3]['title'] }}</h3>
-          </div>
-        </div>
-        
+
       </div>
         {% endif %}
         
-      
       </div> 
     </div>
   </div>
