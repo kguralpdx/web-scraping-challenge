@@ -35,7 +35,7 @@
           <div class="col-md-4">
             <h4>Mars Facts</h4>
             <div>
-              {{ mars.mars_table }}
+              {{ mars.mars_table | safe }}
             </div>
           </div>
         </div>
@@ -64,14 +64,8 @@
             <h3>{{ mars.hemispheres[3]['title'] }}</h3>
           </div>
         </div>
-           
-
-        {{ mars.mars_table }}
-      
-
+             
           {% endif %}
-
-          
         
         </div>
       </div> 
