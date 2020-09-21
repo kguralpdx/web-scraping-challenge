@@ -12,25 +12,70 @@
 
 <body>
   <div class="container-fluid">
-    <div class="jumbotron text-center" style="background-image: url(../static/images/pia22594.jpg);">
-      <h1>Mission to Mars</h1>
-      <p>Pandas. BeautifulSoup. Splinter. MongoDB. PyMongo.</p>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron text-center" style="background-image: url(../static/images/pia22594.jpg);">
+          <h1>Mission to Mars</h1>
+          <p>Pandas. BeautifulSoup. Splinter. MongoDB. PyMongo.</p>
+          <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            {% if mars %}
+            <h2>Latest Mars News</h2>
+            <h3>{{ mars.news_title }}</h3>
+            <p>{{ mars.news_p }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <h2>Featured Mars Image</h2>
+            <img src={{ mars.featured_image_url }} alt="The featured image from JPL"/>
+          </div>
+          <div class="col-md-4">
+            <h4>Mars Facts</h4>
+            <div>
+              {{ mars.mars_table }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class=text-center>Mars Hemispheres</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src={{ mars.hemispheres[0]['img_url'] }} alt="An image of the Cerberus Hemisphere of Mars"/>
+            <h3>{{ mars.hemispheres[0]['title'] }}</h3>
+          </div>
+          <div class="col-md-6">
+            <img src={{ mars.hemispheres[1]['img_url'] }} alt="An image of the Schiaparelli Hemisphere of Mars"/>
+            <h3>{{ mars.hemispheres[1]['title'] }}</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src={{ mars.hemispheres[2]['img_url'] }} alt="An image of the Syrtis Major Hemisphere of Mars"/>
+            <h3>{{ mars.hemispheres[2]['title'] }}</h3>
+          </div>
+          <div class="col-md-6">
+            <img src={{ mars.hemispheres[3]['img_url'] }} alt="An image of the Valles Marineris Hemisphere of Mars"/>
+            <h3>{{ mars.hemispheres[3]['title'] }}</h3>
+          </div>
+        </div>
+           
+
+        {{ mars.mars_table }}
+      
+
+          {% endif %}
+
+          
+        
+        </div>
+      </div> 
     </div>
-    {% if mars %}
-    <h2>Latest Mars News</h2>
-    <h3>{{ mars.news_title }}</h3>
-    <p>{{ mars.news_p }}</p>
-
-    <img src={{ mars.featured_image_url }} alt="The featured image from JPL"/>
-
-    <img src={{ mars.hemispheres[0]['img_url'] }} />
-    <h3>{{ mars.hemispheres[0]['title'] }}</h3>
-
-    <div>{{ mars.mars_table }}</div>
-
-    {% endif %}
-  </div>
   </div>
 </body>
 

@@ -2,7 +2,7 @@ h1 {
     color: blue;
 }
 
-.jumbotron h1, p{
+.jumbotron h1, h5{
     color: rgb(255, 0, 0);
 }
 .jumbotron-image {
@@ -14,4 +14,9 @@ h1 {
   
 .tr {
     text-align: left;
+    padding-left: 3px;
+}
+
+p {
+    color: black;
 }
