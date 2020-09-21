@@ -14,13 +14,17 @@ The purpose of thie challenge is to, by the click of a button on a webpage, scra
     * [static](Missions_to_Mars/static/) - this folder holds two subfolders--css and images
         * [css](Missions_to_Mars/static/css/) - this folder holds the *style.css* file that helps format the webpage
         * [images](Missions_to_Mars/static/images/) - this folder holds the image file used as the background of the jumbotron on the webpage (*pia22594.jpg*) as well as the screenshots of the webpage
-* [WebVisualizations](WebVisualizations/) - this folder contains all the files used in the project except for the index.html file
-    * [Resources](WebVisualizations/Resources/) - this folder contains the date source file (*City_Data.csv*)
-    * [Assets](WebVisualizations/assets/) - this folder contains the *CSS* and *images* subfolders and files
-        * [CSS](WebVisualizations/assets/css/) - this folder contains the *styles.css* file used to format most of the website
-        * [Images](WebVisualizations/assets/images/) - this folder contains the 4 scatter plot image files
-    * [Visualizations](WebVisualizations/visualizations/) - this folder contains the 4 HTML visualization files
+    * [templates](Missions_to_Mars/templates/) - this folder contains the *index.html* file, or the *Landing Page* file
+    * [app.py](Missions_to_Mars/) - this is the *Flask* API
+    * [scrape_mars.py](Missions_to_Mars/) - this is the *PyMongo* script that does the scraping
 
+    * [mars_facts_table]((Missions_to_Mars/) - this file is the Mars Facts table created in *Jupyter Notebook* and saved as an HTML file. This is not needed to run this project. It's more of a troubleshooting file when I had issues trying to get the Mars Facts table to display on the website. This information is also saved to a variable and that's how it's used when running this project.
+
+
+## Requirements
+
+1. *MongoDB* must be running. If it's installed locally, you need to run `mongod` from a terminal and leave that up and running in the background. Then open another terminal and run `mongo`. If you have *MongoDB* running as a service, you just need to open a terminal and run `mongo`.
+2. For *Splinter* to work, you need to have the correct version of the *Chromedriver* downloaded and accessible. This must be the version that matches your current version of Chrome. Instructions on how to find your current version of *Chrome* as well as how/where to install the *Chromedriver* can be found at the end of this file in the **How-To** section, or [here](#how-to)
 
 ## Web Development
 
@@ -50,5 +54,5 @@ The sidebar with the thumbnails gave me a run for my money. But the Bootstrap co
 I had such grand ideas for this website but time was not my friend so I didn't get a chance to build it out more. Between the navigation bar and the sidebar, where a good portion of my time was spent, it's amazing my hair hasn't all turned gray!
 
 
-
+## How-To
 Chromedriver info in Day 1 Activity 5
