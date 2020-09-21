@@ -8,6 +8,7 @@
   <title>Mission to Mars</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -19,21 +20,22 @@
           <p>Pandas. BeautifulSoup. Splinter. MongoDB. PyMongo.</p>
           <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
         </div>
+        {% if mars %}
         <div class="row">
           <div class="col-md-12">
-            {% if mars %}
-            <h2>Latest Mars News</h2>
-            <h3>{{ mars.news_title }}</h3>
-            <p>{{ mars.news_p }}</p>
+
+            <h2 style="font-weight: bold">Latest Mars News</h2>
+            <h3 style="font-weight: bold;">{{ mars.news_title }}</h3>
+            <p style="color: black; font-size: medium;">{{ mars.news_p }}</p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-8">
-            <h2>Featured Mars Image</h2>
+            <h2 style="font-weight: bolder;">Featured Mars Image</h2>
             <img src={{ mars.featured_image_url }} alt="The featured image from JPL"/>
           </div>
           <div class="col-md-4">
-            <h4>Mars Facts</h4>
+            <h4 style="font-weight: bold;">Mars Facts</h4>
             <div>
               {{ mars.mars_table | safe }}
             </div>
@@ -41,7 +43,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <h2 class=text-center>Mars Hemispheres</h2>
+            <h2 class=text-center style="font-weight: bold;">Mars Hemispheres</h2>
           </div>
         </div>
         <div class="row">
@@ -64,13 +66,23 @@
             <h3>{{ mars.hemispheres[3]['title'] }}</h3>
           </div>
         </div>
-             
-          {% endif %}
         
-        </div>
+      </div>
+        {% endif %}
+        
+      
       </div> 
     </div>
   </div>
+
+  <div class="footer">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </div>
+
 </body>
 
 </html>
