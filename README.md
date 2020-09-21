@@ -18,24 +18,26 @@ The purpose of thie challenge is to, by the click of a button on a webpage, scra
     * [app.py](Missions_to_Mars/) - this is the *Flask* API
     * [scrape_mars.py](Missions_to_Mars/) - this is the *PyMongo* script that does the scraping
 
-    * [mars_facts_table]((Missions_to_Mars/mars_facts_table.html) - this file is the Mars Facts table created in *Jupyter Notebook* and saved as an HTML file. This is not needed to run this project. It's more of a troubleshooting file when I had issues trying to get the Mars Facts table to display on the website. This information is also saved to a variable and that's how it's used when running this project.
+    * [mars_facts_table](Missions_to_Mars/mars_facts_table.html) - this file is the Mars Facts table created in *Jupyter Notebook* and saved as an HTML file. This is not needed to run this project. It's more of a troubleshooting file when I had issues trying to get the Mars Facts table to display on the website. This information is also saved to a variable and that's how it's used when running this project.
 
 
 ## Requirements
 
 1. *MongoDB* **must** be running. If it's installed locally, you need to run `mongod` from a terminal and leave that up and running in the background. Then open another terminal and run `mongo`. If you have *MongoDB* running as a service, you just need to open a terminal and run `mongo`.
 
-2. For *Splinter* to work, you need to have the correct version of the *Chromedriver* downloaded and accessible. This must be the version that matches your current version of Chrome. Instructions on how to find your current version of *Chrome* as well as how/where to install the *Chromedriver* can be found at the end of this file in the **How-To Install Chromedriver** section, or [here](#how-to install chromedriver).
+2. For *Splinter* to work, you need to have the correct version of the *Chromedriver* downloaded and accessible. This must be the version that matches your current version of Chrome. Instructions on how to find your current version of *Chrome* as well as how/where to install the *Chromedriver* can be found at the end of this file in the **How-To Install Chromedriver** section, or [here](#how-to).
 
 3. After the *Chromedriveer* has been installed, you will need to modify the `executable-path` in the *scrape_mars.py* file to point to where you put the *chromedriver.exe* file.
     ![Images/executable_path.png](Images/executable_path.PNG)
 
 4. If you run the *Jupyter Notebook*, you will also need to modify the `executable-path` in there as well. There are 2 cells that will need to be updated (one in the *JPL Mars Space Images - Feature Image* section and one in the *Mars Hemispheres* section).
 
+Once the requirements are set, run `python app.py` from a Python terminal in the same folder as that file, click the URL to launch the webpage, and then click the *Scrape New Data* button to start scraping.
 
-## Web Development
 
-In order to create this website, I started with the home page, or landing page. Just added the image and text. Started looking into navigation and sidebar but that was becoming time consuming so moved on.
+## Development and Analysis
+
+I started with the *Jupyter Notebook* so I could begin scripting my scrapes and to figure out how to navigate to the information I was looking for. The first data I needed was from [NASA Mars News Site](https://mars.nasa.gov/news/). I used *BeautifulSoup* to 
 
 Next I created the *Data* page. I knew that was going to require something outside the HTML/CSS whelm so wanted to get that taken care of. I used *Pandas* to generate an HTML table from a dataframe. That worked pretty well. I then created the page with some help from the [Layoutit!](https://layoutit.com/build) website to get the table structure. It took a little bit of tweaking but was pretty helpful.
 
@@ -61,9 +63,9 @@ The sidebar with the thumbnails gave me a run for my money. But the Bootstrap co
 I had such grand ideas for this website but time was not my friend so I didn't get a chance to build it out more. Between the navigation bar and the sidebar, where a good portion of my time was spent, it's amazing my hair hasn't all turned gray!
 
 
-## How-To Install Chromedriver
+## How-To
 
-First you need to find which version of Chrome you're using. 
+To install the *Chromedriver*, first you need to find which version of *Chrome* you're using. 
 
 1. In Chrome, click the Menu icon, 3-dot icon, in the upper right corner of the screen.
 2. Click **Help** from the dropdown menu.
