@@ -64,7 +64,7 @@ Saved the screenshots of my site to the *Missions_to_Mars\static\images* folder.
 
 Had a few issues along the way with this one. Had trouble figuring out how to get the 4 hemispheres data pulled correctly. Ended up working through this with Erin Hislope because she was stuck at the same spot. We ended up working with each other on and off for the rest of this project as well which was great because as issues came up for one or the other of us, it was two sets of eyes on it to decipher what was wrong.
 
-I got to use the Jumbotron element in my webpage this time around. Didn't get a chance to try that out with our last project. With all the great images of Mars from all the websites we were scraping, I really wanted to set the background of my Jumbotron to one of those and I was actually able to figure it out. Got some help from [here]https://jsfiddle.net/bootstrapious/f7ewb3pg/). Got the image from the *JPL NASA* website.
+I got to use the Jumbotron element in my webpage this time around. Didn't get a chance to try that out with our last project. With all the great images of Mars from all the websites we were scraping, I really wanted to set the background of my Jumbotron to one of those and I was actually able to figure it out. Got some help from [here](https://jsfiddle.net/bootstrapious/f7ewb3pg/). Got the image from the *JPL NASA* website.
 
 I also tried out cards in the webpage for the 4 hemispheres. Seemed like a good fit for that and I hadn't used them before. So I pulled out the code I had working and replaced it with the cards which I ended up liking better thankfully.
 
