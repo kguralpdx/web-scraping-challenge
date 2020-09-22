@@ -70,7 +70,7 @@ I also tried out cards in the webpage for the 4 hemispheres. Seemed like a good 
 
 Ran into several issues with the webpage, though. First, I couldn't get the *Mars Facts* table to render. It just kept showing the HTML instead. I viewed the HTML that had been output from *pandas* and it showed the whole table, it just wouldn't work. Thought I needed to add it to a `table` element but after viewing the output, saw that the `table` element tags were actually part of that. Then tried sticking it in `div` tags but with no luck. Thankfully, Troy Ramsey offered up the automatic escaping found in *Jinja*. So I did some quick research on that and found the solution.
 
-Another issue was with my *style.css* file. For whatever reason, only parts of that seemed to work with my *index.html* file. Finally started adding formatting directly in the *index.html* file to get it mostly how I wanted. Still wanted to format the *Mars Facts* table a bit. After rebooting my computer, some of the styles from the stylesheet actually started working and it broke other things. So I'm still not sure what is going on with that. Tried inspecting it with *Google's Inspect* but to no avail.
+Another issue was with my *style.css* file. For whatever reason, only parts of that seemed to work with my *index.html* file. Finally started adding formatting directly in the *index.html* file to get it mostly how I wanted. Still wanted to format the *Mars Facts* table a bit. After rebooting my computer, some of the styles from the stylesheet actually started working and it broke other things. So I'm still not sure what is going on with that. Tried inspecting it with *Google's Inspector* but to no avail.
 
 
 ## How-To
