@@ -14,6 +14,12 @@ The purpose of thie challenge is to, by the click of a button on a webpage, scra
     * [static](Missions_to_Mars/static/) - this folder holds two subfolders--css and images
         * [css](Missions_to_Mars/static/css/) - this folder holds the *style.css* file that helps format the webpage
         * [images](Missions_to_Mars/static/images/) - this folder holds the image file used as the background of the jumbotron on the webpage (*pia22594.jpg*) as well as the screenshots of the webpage
+           #### Screenshot Files
+                1. [entire webpage](Missions_to_Mars/static/images/entire_webpage.PNG) - screenshot of the entire populated webpage
+                2. [Featured Mars Image and the Mars Facts table](Missions_to_Mars/static/images/featured_mars_image_and_mars_fact_table.PNG) - screenshot of the Featured Mars Image and the Mars Facts table
+                3. [four_hemispheres](Missions_to_Mars/static/images/four_hemispheres.PNG) - screenshot of the 4 hemispheres of Mars
+                4. [Scrape Button](Missions_to_Mars/static/images/jumbotron_with_scrape_button.PNG) - screenshot of the jumbotron section of the webpage featuring the *Scrape New Data* button that kicks of the scraping
+                5. [Latest News](Missions_to_Mars/static/images/latest_news.PNG) - screenshot of the *Latest News* section of the webpage
     * [templates](Missions_to_Mars/templates/) - this folder contains the *index.html* file, or the *Landing Page* file
     * [app.py](Missions_to_Mars/app.py) - this is the *Flask* API
     * [scrape_mars.py](Missions_to_Mars/scrape_mars.py) - this is the *PyMongo* script that does the scraping
@@ -56,7 +62,7 @@ The last part was creating the webpage. I used *Bootstrap* for the layout and *J
 
 Saved the screenshots of my site to the *Missions_to_Mars\static\images* folder. There's also the Jumbotron background image file I used (*pia22594.jpg*) saved in that same folder.
 
-Had a few issues along the way with this one. Had trouble figuring out how to get the 4 hemispheres data pulled correctly. Ended up working through this with Erin Hislope on this because she was stuck at the same spot. We ended up working with each other for most of the rest of this as well which was great because as issues came up for one or the other of us, it was two sets of eyes on it to decipher what was wrong.
+Had a few issues along the way with this one. Had trouble figuring out how to get the 4 hemispheres data pulled correctly. Ended up working through this with Erin Hislope because she was stuck at the same spot. We ended up working with each other on and off for the rest of this project as well which was great because as issues came up for one or the other of us, it was two sets of eyes on it to decipher what was wrong.
 
 I got to use the Jumbotron element in my webpage this time around. Didn't get a chance to try that out with our last project. With all the great images of Mars from all the websites we were scraping, I really wanted to set the background of my Jumbotron to one of those and I was actually able to figure it out. Got the image from the *JPL NASA* website.
 
