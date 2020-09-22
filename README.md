@@ -37,30 +37,34 @@ Once the requirements are set, run `python app.py` from a Python terminal in the
 
 ## Development and Analysis
 
-I started with the *Jupyter Notebook* so I could begin scripting my scrapes and to figure out how to navigate to the information I was looking for. The first data I needed was from [NASA Mars News Site](https://mars.nasa.gov/news/). I used *BeautifulSoup* to 
+I started with the *Jupyter Notebook* so I could begin scripting my scrapes and to figure out how to navigate to the information I was looking for. The first data I needed was from [NASA Mars News Site](https://mars.nasa.gov/news/). I used *BeautifulSoup* to examine the HTML and search for the feature data and tags. Once that was found, I was able to extract the title and paragraph of the featured article to variables. 
 
-Next I created the *Data* page. I knew that was going to require something outside the HTML/CSS whelm so wanted to get that taken care of. I used *Pandas* to generate an HTML table from a dataframe. That worked pretty well. I then created the page with some help from the [Layoutit!](https://layoutit.com/build) website to get the table structure. It took a little bit of tweaking but was pretty helpful.
+The *JPL Mars Space Image* data found [here](https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars) was a bit more involved. I had to navigate the website, click some buttons and search for the particular tags. This required using *Splinter* to navigate the site and *BeautifulSoup* to find the correct tags. It was a little extra tricky because we needed the fullsize image and not the medium sized one which was easier to get to. Once that was found, assigned that to a variable as well. The image only had a relative path, though, so had to concatenate the main site URL with the relative path to get the full URL.
 
-After the *Data* page was created, I did the *Comparisons* page. Once again, I turned to the [Layoutit!](https://layoutit.com/build) website for structure assistance for the grid.
+Next I had to get Mars Facts information from [here](https://space-facts.com/mars/). This was data in a table on the webpage. So used *Pandas* to read the HTML into a dataframe. The information I needed was in the first table so extracted that, renamed columns, made the *Description* column the index, and then saved the dataframe to HTML as both a variable and as a file called *mars_facts_table.html*. This HTML file was actually not used as part of the scraping but I used it later for troubleshooting the rendering issue I had in the *index.html* page.
 
-The *Visualization* pages came next and were pretty straightforward. 
+The last scrape involved getting the 4 hemisphere images of Mars and their titles. This information came from the *USGS Astrogeology* site [here](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars). This, like the JPL site, required using both *BeautifulSoup* and *Splinter*. This one required getting a list of relative paths first and concatenating those to the main site's URL to get the full image URL. Then had to loop through those to get title for each and create a list of dictionaries--each dictionary had the title and full URL for a particular Mars hemisphere.
 
-Now I had all the pages created, time to tackle navigation and the sidebar. I decided to go with navigation first. This posed several challenges for me. Trying to get the layout correct and then the background colors to work depending on the screen size. Used media queries to help with the background color change. Ran into an issue when using the `navbar-light` with `bg-light`class attributes of the `nav` element. When the navigation bar background color was supposed to switch because the screen size got smaller, the *hamburger* icon would disappear. I tried setting the background color in the *styles.css* file using a media query and just trying to set it directly, but neither would work. Finally found that removing the `bg-light` attribute was all that was needed. Used the `navbar-brand` class of the `nav` element since that was always in the left side of the navigation bar and I could make it a link. Once I got the navigation bar working correctly, I added the code for that to each of the HTML pages.
+With all the scraping determined, time to create the *PyMongo* file and the *Flask* API. For the *scrape_mars.py* file, that was mainly just copying the code used in *Jupyter Notebook* and pasting it into the file. Did not include the analyzing parts, though, since that wasn't needed anymore. I did add in some wait times when getting to the web pages so they would have time to fully load before attempting the scrape. The *USGS Astrogeology* site took the longest to load. After each site was scraped, the variables were added to a dictionary so that at the end, all the variables were stored in one dictionary and returned to the *app.py* file to save into a *MongoDB* database.
 
-The sidebar was the last challenge to overcome. Had issues getting it positioned correctly. Then I had trouble with the images, or thumbnails, and not having the correct layout based on the size of the screen; they kept stacking on top of each other instead of one row of 4 images for small screens. Finally got that working through media queries, column classes and sizing of the images. Have a better understanding of the meaning behind the 12-column structure in *Bootstrap*. Once all those issues were resolved, added the sidebar code to the 4 *Visualization* pages and the *Home* page.
+Set up two routes in the *app.py* file--one for the *Home* page and the other that runs the scraping. The scraping route then redirects to the *Home* page once the scraping process is finished so it can display the results on the HTML page.
+
+The last part was creating the webpage. I used *Bootstrap* for the layout and *jinja* for adding the data from the *MongoDB* database.
 
 
 ## Notes
 
-I used weather data for this project but I decided to use the data I had gathered from the earlier project instead of using the files provided. I had already done the analysis on the dataset I had created so it just made more sense to use that again. I had also put a lot of work into creating those files originally so to get the opportunity to put that to good use was appealing.
+Saved the screenshots of my site to the *Missions_to_Mars\static\images* folder. There's also the Jumbotron background image file I used saved in that same folder.
 
-In the *Plots* dropdown, I disabled the plot if it was the current page being viewed. Seemed like you shouldn't have a link to choose it if you're already on that page. Same for the *Comparisons* and *Data* links.
+Had a few issues along the way with this one. Had trouble figuring out how to get the 4 hemispheres data pulled correctly. Ended up working through this with Erin Hislope on this because she was stuck at the same spot. We ended up working with each other for most of the rest of this as well which was great because as issues came up for one or the other of us, it was two sets of eyes on it to decipher what was wrong.
 
-The navigation bar was quite the challenge. Learned a lot about those various attributes, though, so it was more satisying when I actually got everything to work. The different screen sizes and the navbar background color change dependency what one of the more challenging parts of it.
+I got to use the Jumbotron element in my webpage this time around. Didn't get a chance to try that out with our last project. With all the great images of Mars from all the websites we were scraping, I really wanted to set the background of my Jumbotron to one of those and I was actually able to figure it out. Got the image from the *JPL NASA* website.
 
-The sidebar with the thumbnails gave me a run for my money. But the Bootstrap column grid settings finally started to make more sense along the way.
+I also tried out cards in the webpage with 4 hemispheres. Seemed like a good fit for that and I hadn't used them before. So I pulled out the code I had working and replaced it with the cards which I ended up liking better.
 
-I had such grand ideas for this website but time was not my friend so I didn't get a chance to build it out more. Between the navigation bar and the sidebar, where a good portion of my time was spent, it's amazing my hair hasn't all turned gray!
+Ran into several issues with the webpage, though. First, I couldn't get the *Mars Facts* table to render. It just kept showing the HTML instead. I viewed the HTML that had been output from *pandas* and it showed the whole table, it just wouldn't work. Thought I needed to add it to a `table` tag but after viewing the output, saw that the `table` tags were actually part of that, that tried sticking it in `div` tags but with no luck. Thankfully, Troy Ramsey offered up the automatic escaping found in *jinja*. So I did some quick research on that and found the solution.
+
+Another issue was with my *stlye.css* file. For whatever reason, only parts of that seemed to work with my *index.html* file. Finally started adding formatting directly in the *index.html* file to get it mostly how I wanted. Still wanted to format the *Mars Facts* table a bit. After rebooting my computer, some of the styles from the stylesheet actually started working and it broke other things. So I'm still not sure what is going on with that. Tried inspecting it in *Google's Inspect* but to no avail.
 
 
 ## How-To
@@ -84,20 +88,12 @@ To install the *Chromedriver*, first you need to find which version of *Chrome* 
 
 ### Windows
 
-* Visit the ChromeDriver [webpage](https://sites.google.com/a/chromium.org/chromedriver/downloads). Note that ChromeDriver updates really often, so the exact version you are using might be slightly different than the screenshots in these instructions. The screenshots below are for users running Chrome version 79 (your version will likely be later). Make sure match your download to the version of Chrome you’re currently using. Otherwise, you’ll likely run into an error. Follow these steps:
+* Visit the ChromeDriver [webpage](https://sites.google.com/a/chromium.org/chromedriver/downloads). Note that ChromeDriver updates really often. Make sure to match your download to the version of *Chrome* you’re currently using. Otherwise, you’ll likely run into an error. Follow these steps:
 
 1. Click on the file that matches your version of Chrome.
 
-   ![Images/01.png](Images/01.png)
-
 2. Click `chromedriver_win32.zip` to download ChromeDriver for Windows.
-
-   ![Images/02.png](Images/02.png)
 
 3. Extract the executable program file.
 
-   ![Images/03.png](Images/03.png)
-
 4. Place the file in the same folder as your Python web scraping script.
-
-   ![Images/04.png](Images/04.png)
